@@ -11,6 +11,10 @@
 
 ## diagrams
 
-- use case:
+- use case diagram:
 
-![diagram use case](use-case.png);
+![diagram use case](use-case.png)
+
+- class diagram:
+
+![diagram class](class.png)
