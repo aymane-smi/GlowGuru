@@ -21,7 +21,7 @@
             $this->db->bind(":id", $id);
             $this->db->bind(":price", $price);
             $this->db->bind(":category", $category);
-            $this->db->bind(":image", $image);
+            //$this->db->bind(":image", $image);
             $this->db->bind(":description", $description);
             $this->db->execute();
             if($image !== ""){
@@ -51,7 +51,7 @@
 
 
         public function getProductBySearch($search){
-            $this->db->query("SELECT * FROM product WHERE name LIKE %:search%");
+            $this->db->query("SELECT * FROM product WHERE name LIKE CONCAT('%', :search, '%')");
             $this->db->bind(":search", $search);
             return $this->db->resultSet();
         }
