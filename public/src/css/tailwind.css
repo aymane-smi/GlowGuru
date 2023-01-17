@@ -1,0 +1,9 @@
+@import "tailwindcss/base";
+
+@import "tailwindcss/components";
+
+@import "tailwindcss/utilities";
+/* @font-face {
+    font-family: 'Sofia';
+    src: url("./fonts/sofiapro-light.otf");
+} */
