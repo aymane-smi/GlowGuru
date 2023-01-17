@@ -3,7 +3,7 @@ class DB
 {
     private $USER = 'root';
     private $PASSWORD = '123@Password';
-    private $DB = 'electroMaroc';
+    private $DB = 'glowguru';
     private $PORT = 3306;
     private $HOST = 'db';
 

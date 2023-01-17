@@ -1,0 +1,20 @@
+DROP DATABASE IF EXISTS glowguru;
+
+CREATE DATABASE glowguru;
+
+USE glowguru;
+
+CREATE TABLE product(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    category VARCHAR(30) NOT NULL,
+    name VARCHAR(30) NOT NULL,
+    price INT NOT NULL,
+    image VARCHAR(50) NOT NULL,
+    description VARCHAR(150) NOT NULL
+);
+
+CREATE TABLE admin(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(30) NOT NULL,
+    password VARCHAR(60) NOT NULL
+);
