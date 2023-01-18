@@ -5,9 +5,4 @@
         public function index(){
             $this->view("Home");
         }
-
-        public function products(){
-            $this->view("Products");
-        }
     }
-?>
