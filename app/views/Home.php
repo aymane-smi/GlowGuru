@@ -2,7 +2,7 @@
 require_once "inc/header.php";
 ?>
 <div class="relative w-full">
-    <img alt="model with makeup" class="brightness-50" src="https://images.unsplash.com/photo-1516220362602-dba5272034e7?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=500&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY3NDA0ODgzNQ&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1400" />
+    <img alt="model with makeup" class="brightness-50 w-full" src="https://images.unsplash.com/photo-1516220362602-dba5272034e7?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=500&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY3NDA0ODgzNQ&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1400" />
     <nav class="absolute flex justify-between items-center top-[-20px] w-screen px-4">
         <p class="text-[60px] text-white logo">GlowGuru</p>
         <div class="flex flex-col gap-5">
