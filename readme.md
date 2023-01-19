@@ -1,5 +1,9 @@
 # glowguru comsetic web store
 
+## applciation screen shot
+
+![home screen shot](Screenshot_2023-01-04_22-36-02.png)
+
 ## stack used
  - frontend:
     - tailwind for css
