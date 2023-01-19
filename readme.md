@@ -21,5 +21,8 @@
 
 ## ui inspiration:
 
-https://dribbble.com/shots/20330210-Cosmetic-are
-https://dribbble.com/shots/20030117-Product-page-design-for-Cosmo
+   https://dribbble.com/shots/20330210-Cosmetic-are
+
+   https://dribbble.com/shots/20030117-Product-page-design-for-Cosmo
+   
+   https://dribbble.com/shots/17595676-Property-Management-Recommendationss
