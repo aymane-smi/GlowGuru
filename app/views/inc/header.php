@@ -24,6 +24,10 @@ session_start();
             font-family: "Quicksand";
         }
 
+        .width {
+            width: calc(100vw - 130px);
+        }
+
         .bounce {
             animation-name: bounce;
             animation-duration: 2s;

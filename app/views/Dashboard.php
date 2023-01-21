@@ -19,7 +19,13 @@ require_once "inc/footer.php";
             <i class="fa-solid fa-right-from-bracket"></i>
         </a>
     </nav>
-    <div class="p-4">x</div>
+    <div class="p-4">
+        <div class="hidden">
+            <?php
+            require_once "dash-pages/list.php";
+            ?>
+        </div>
+    </div>
 </div>
 <?php
 require_once "inc/header.php";

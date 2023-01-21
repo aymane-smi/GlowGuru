@@ -5,6 +5,9 @@ class Dashboard extends Controller
 
     public function __construct()
     {
+        session_start();
+        if (empty($_SESSION))
+            header("Location: /Login");
         $this->Product = $this->model("Product");
     }
 
