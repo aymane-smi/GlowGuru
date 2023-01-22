@@ -1,6 +1,13 @@
 const multiForm = document.querySelector(".multi-form");
 const btns = document.querySelector(".buttons");
 
+const arrow = document.querySelector(".fa-chevron-up");
+
+arrow.addEventListener("click", (e)=>{
+    e.target.classList.toggle("rotate-180");
+    e.target.parentNode.parentElement.childNodes[3].classList.toggle("hidden");
+});
+
 let counter = 1;
 
 document.querySelectorAll(".add-product").forEach((e)=>{
@@ -14,7 +21,7 @@ document.querySelectorAll(".add-product").forEach((e)=>{
                 Product <span class="product-counter">${++counter}</span>
             </span>
         </div>
-        <i class="fa-solid fa-chevron-down"></i>
+        <i class="fa-solid fa-chevron-up"></i>
     </div>
     <div class="flex flex-col gap-5 border-2 border-t-0 p-3">
         <div class="flex flex-col gap-2">
@@ -39,6 +46,10 @@ document.querySelectorAll(".add-product").forEach((e)=>{
         </div>
         <input type="file" name="image[]" required />
     </div>`;
+    newElement.childNodes[0].childNodes[3].addEventListener("click", (e)=>{
+        e.target.classList.toggle("rotate-180");
+        e.target.parentNode.parentElement.childNodes[2].classList.toggle("hidden");
+    });
     multiForm.insertBefore(newElement, btns);
     });
 });

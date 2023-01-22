@@ -7,7 +7,7 @@
                     Product <span class="product-counter">1</span>
                 </span>
             </div>
-            <i class="fa-solid fa-chevron-down"></i>
+            <i class="fa-solid fa-chevron-up"></i>
         </div>
         <div class="flex flex-col gap-5 border-2 border-t-0 p-3">
             <div class="flex flex-col gap-2">
