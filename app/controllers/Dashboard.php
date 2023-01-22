@@ -14,8 +14,14 @@ class Dashboard extends Controller
     public function addProduct()
     {
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
-            $this->Product->createProduct($_POST["name"], $_POST["price"], $_POST["category"], $_FILES["image"]["name"], $_POST["description"]);
-            echo "created post";
+            $_POST["names"] = json_decode($_POST["names"]);
+            $_POST["prices"] = json_decode($_POST["prices"]);
+            $_POST["descriptions"] = json_decode($_POST["descriptions"]);
+            $_POST["categories"] = json_decode($_POST["categories"]);
+            for ($i = 0; $i < count($_POST["names"]); $i++) {
+                $this->Product->createProduct($_POST["names"][$i], $_POST["prices"][$i], $_POST["categories"][$i], $_FILES["images"]["name"][$i], $_POST["descriptions"][$i]);
+                move_uploaded_file($_FILES['images']['tmp_name'][$i], "/var/www/html/public/src/images" . $_FILES['images']['name'][$i]);
+            }
         }
     }
 

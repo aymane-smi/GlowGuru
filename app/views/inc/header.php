@@ -25,7 +25,11 @@ session_start();
         }
 
         .width {
-            width: calc(100vw - 130px);
+            width: calc(100vw - 200px);
+        }
+
+        .height{
+            height: calc(100vh - 50px);
         }
 
         .bounce {

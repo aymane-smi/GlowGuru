@@ -1,5 +1,5 @@
 <?php
-require_once "inc/footer.php";
+require_once "inc/header.php";
 ?>
 <!-- <nav class="flex justify-between items-center top-[-20px] w-screen px-4">
     <p class="text-[60px] logo">GlowGuru</p>
@@ -25,8 +25,13 @@ require_once "inc/footer.php";
             require_once "dash-pages/list.php";
             ?>
         </div>
+        <div class="p-4 overflow-y-scroll height">
+            <?php
+            require_once "dash-pages/add.php";
+            ?>
+        </div>
     </div>
 </div>
 <?php
-require_once "inc/header.php";
+require_once "inc/footer.php";
 ?>
