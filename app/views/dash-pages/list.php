@@ -26,7 +26,7 @@
     ?>
         <div class="grid grid-cols-5 border-[2px] rounded-md font-semibold mt-2 p-3">
             <div class="flex justify-center items-center">
-                <img class="w-[80px] h-[80px] rouneded-[50%]" alt="image alternative" src="http://localhost:9000/src/assets/<?php echo $product->image; ?>" />
+                <img class="w-[80px] h-[80px] rouneded-[50%]" alt="image alternative" src="http://localhost:9000/public/src/images/<?php echo $product->image; ?>" />
             </div>
             <div class="flex justify-center items-center rounded-sm">
                 <?php

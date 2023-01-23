@@ -91,11 +91,9 @@ multiForm.addEventListener("submit", (e)=>{
     handleFile(formData);
     fetch("http://localhost:9000/Dashboard/addProduct", {
         method: "POST",
-        // headers:{
-        //     'content-type': "multipart/form-data",
-        // },
         body: formData,
-    })
+    });
+
 });
 
 
@@ -151,3 +149,5 @@ settings.addEventListener("submit", (e)=>{
 
 
 //handle edit form
+
+

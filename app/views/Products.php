@@ -13,10 +13,9 @@ require_once "inc/header.php";
 </p>
 
 <div class="my-8 text-center text-[20px] border-y-[2px] mx-8 py-10">
-    /<span class="mx-3">category 1</span>
-    /<span class="text-gray-600 mx-3">category 1</span>
-    /<span class="mx-3">category 1</span>
-    /<span class="mx-3">category 1</span>/
+    /<span class="mx-3 cursor-pointer">shampo</span>
+    /<span class="mx-3 cursor-pointer">lotion</span>
+    /<span class="mx-3 cursor-pointer">creeme</span>/
 </div>
 
 <div class="flex justify-center items-centerflex-wrap p-4">

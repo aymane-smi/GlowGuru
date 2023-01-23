@@ -34,7 +34,7 @@ class Dashboard extends Controller
             $_POST["categories"] = json_decode($_POST["categories"]);
             for ($i = 0; $i < count($_POST["names"]); $i++) {
                 $this->Product->createProduct($_POST["names"][$i], $_POST["prices"][$i], $_POST["categories"][$i], $_FILES["images"]["name"][$i], $_POST["descriptions"][$i]);
-                move_uploaded_file($_FILES['images']['tmp_name'][$i], "/var/www/html/public/src/images" . $_FILES['images']['name'][$i]);
+                move_uploaded_file($_FILES['images']['tmp_name'][$i], "/var/www/html/public/src/images/" . $_FILES['images']['name'][$i]);
             }
         }
     }
