@@ -1,3 +1,5 @@
+//handling add form
+
 const multiForm = document.querySelector(".multi-form");
 const btns = document.querySelector(".buttons");
 
@@ -82,13 +84,43 @@ const handleInput = (arr)=>{
 };
 
 const handleFile = (formdata)=>{
-    // let tmp = [];
-    // for(const value of document.querySelectorAll("input[name='image[]']")){
-    //     tmp.push(value.files[0]);
-    // }
-    // console.log(tmp);
-    // return tmp;
     for(const value of document.querySelectorAll("input[name='image[]']")){
         formdata.append("images[]", value.files[0]);
     }
 }
+
+
+//handling settings form
+
+
+const settings = document.querySelector(".settings");
+
+
+settings.addEventListener("submit", (e)=>{
+    e.preventDefault();
+    let formData = new FormData();
+    formData.append("username", document.querySelector("input[name='username']").value);
+    formData.append("password", document.querySelector("input[name='password']").value);
+    formData.append("id", document.querySelector("input[name='id']").value)
+
+    try{
+        fetch("http://localhost:9000/Dashboard/editAdmin", {
+            method: "POST",
+            body: formData,
+        });
+        let timeCounter = 0;
+        const flash = document.querySelector(".flash");
+        const progress = document.querySelector(".progress");
+        flash.classList.remove("hidden");
+        const interval = setInterval(()=>{
+            if(timeCounter === 1500){
+                flash.classList.add("hidden");
+                clearInterval(interval);
+            }
+            timeCounter+=10;
+            progress.style.width = (timeCounter/1500)*100+"%";
+        }, 10);
+    }catch(err){
+        console.log(err);
+    }
+});

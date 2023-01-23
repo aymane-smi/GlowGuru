@@ -2,6 +2,7 @@
 class Dashboard extends Controller
 {
     private $Product;
+    private $Admin;
 
     public function __construct()
     {
@@ -9,6 +10,19 @@ class Dashboard extends Controller
         if (empty($_SESSION))
             header("Location: /Login");
         $this->Product = $this->model("Product");
+        $this->Admin = $this->model("Admin");
+    }
+
+    public function createDefaultAdmin()
+    {
+        $this->Admin->signup("admin", "admin");
+    }
+
+    public function editAdmin()
+    {
+        if ($_SERVER["REQUEST_METHOD"] === "POST") {
+            $this->Admin->edit($_POST["id"], $_POST["username"], $_POST["password"]);
+        }
     }
 
     public function addProduct()
@@ -37,6 +51,7 @@ class Dashboard extends Controller
     {
         $data = [
             "products" => $this->Product->getAllProduct(),
+            "admin" => $this->Admin->getAdminById($_SESSION["user_id"]),
         ];
         $this->view("Dashboard", $data);
     }

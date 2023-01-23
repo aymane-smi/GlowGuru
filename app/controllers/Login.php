@@ -29,9 +29,4 @@ class Login extends Controller
             }
         }
     }
-
-    public function createDefaultAdmin()
-    {
-        $this->Admin->signup("admin", "admin");
-    }
 }

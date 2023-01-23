@@ -29,17 +29,28 @@ class Admin
         $this->db->execute();
     }
 
-    public function edit($id, $username, $password = "")
+    public function edit($id, $username, $password)
     {
         $this->db->query("UPDATE admin SET username = :username WHERE id = :id");
         $this->db->bind(":id", $id);
         $this->db->bind(":username", $username);
-        $this->db->execute();
-        if ($password === "") {
+        $result = $this->db->execute();
+        if ($password !== "") {
+            $option = [
+                "cost" => 12,
+            ];
             $this->db->query("UPDATE admin SET password = :password WHERE id = :id");
             $this->db->bind(":id", $id);
-            $this->db->bind(":password", $password);
-            $this->db->execute();
+            $this->db->bind(":password", password_hash($password, PASSWORD_BCRYPT, $option));
+            $result = $result && $this->db->execute();
         }
+        return $result;
+    }
+
+    public function getAdminById($id)
+    {
+        $this->db->query("SELECT * FROM admin WHERE id = :id");
+        $this->db->bind(":id", $id);
+        return $this->db->single();
     }
 }

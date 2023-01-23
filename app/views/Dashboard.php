@@ -25,9 +25,14 @@ require_once "inc/header.php";
             require_once "dash-pages/list.php";
             ?>
         </div>
-        <div class="p-4 overflow-y-scroll height">
+        <div class="p-4 overflow-y-scroll height hidden">
             <?php
             require_once "dash-pages/add.php";
+            ?>
+        </div>
+        <div class="p-4">
+            <?php
+            require_once "dash-pages/settings.php";
             ?>
         </div>
     </div>
