@@ -72,4 +72,12 @@ class Dashboard extends Controller
     {
         var_dump($this->Product->getProductBySearch($search));
     }
+
+    public function logout()
+    {
+        if ($_SERVER["REQUEST_METHOD"] === "POST") {
+            session_destroy();
+            header("Location: /Login");
+        }
+    }
 }

@@ -5,6 +5,30 @@ const btns = document.querySelector(".buttons");
 
 const arrow = document.querySelector(".fa-chevron-up");
 
+const getList = document.querySelector(".get-list");
+
+const getadd = document.querySelector(".get-add");
+
+const getSettings = document.querySelector(".get-settings");
+
+getList.addEventListener("click", ()=>{
+    document.querySelector(".lists").classList.remove("hidden");
+    document.querySelector(".add").classList.add("hidden");
+    document.querySelector(".setting").classList.add("hidden");
+});
+
+getadd.addEventListener("click", ()=>{
+    document.querySelector(".add").classList.remove("hidden");
+    document.querySelector(".lists").classList.add("hidden");
+    document.querySelector(".setting").classList.add("hidden");
+});
+
+getSettings.addEventListener("click", ()=>{
+    document.querySelector(".setting").classList.remove("hidden");
+    document.querySelector(".lists").classList.add("hidden");
+    document.querySelector(".add").classList.add("hidden");
+});
+
 arrow.addEventListener("click", (e)=>{
     e.target.classList.toggle("rotate-180");
     e.target.parentNode.parentElement.childNodes[3].classList.toggle("hidden");
@@ -124,3 +148,6 @@ settings.addEventListener("submit", (e)=>{
         console.log(err);
     }
 });
+
+
+//handle edit form
