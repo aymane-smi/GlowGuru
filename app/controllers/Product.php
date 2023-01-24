@@ -12,7 +12,10 @@ class Product extends Controller
 
     public function index()
     {
-        $this->view("Products");
+        $data = [
+            "products" => $this->Product->getAllProduct(),
+        ];
+        $this->view("Products", $data);
     }
 
     public function findByCategory($category)

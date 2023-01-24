@@ -9,7 +9,7 @@ class Dashboard extends Controller
         session_start();
         if (empty($_SESSION))
             header("Location: /Login");
-        $this->Product = $this->model("Product");
+        $this->Product = $this->model("ProductModel");
         $this->Admin = $this->model("Admin");
     }
 
@@ -32,6 +32,7 @@ class Dashboard extends Controller
             $_POST["prices"] = json_decode($_POST["prices"]);
             $_POST["descriptions"] = json_decode($_POST["descriptions"]);
             $_POST["categories"] = json_decode($_POST["categories"]);
+            echo json_encode($_FILES);
             for ($i = 0; $i < count($_POST["names"]); $i++) {
                 $this->Product->createProduct($_POST["names"][$i], $_POST["prices"][$i], $_POST["categories"][$i], $_FILES["images"]["name"][$i], $_POST["descriptions"][$i]);
                 move_uploaded_file($_FILES['images']['tmp_name'][$i], "/var/www/html/public/src/images/" . $_FILES['images']['name'][$i]);
@@ -74,5 +75,10 @@ class Dashboard extends Controller
     public function Product($id)
     {
         echo json_encode($this->Product->getProductById($id));
+    }
+
+    public function Products()
+    {
+        echo json_encode($this->Product->getAllProduct());
     }
 }

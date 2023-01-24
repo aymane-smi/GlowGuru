@@ -27,7 +27,7 @@
         <p class="font-semibold">
             <i class="fa-solid fa-box"></i> Nombre de Produit
         </p>
-        <p class="font-extrabold"><?php echo count($data["products"]); ?></p>
+        <p class="font-extrabold count-products"><?php echo count($data["products"]); ?></p>
     </div>
     <div class="p-5 rounded-md bg-cyan-200 flex flex-col max-[1000px]:w-full">
         <p class="font-semibold">
@@ -36,8 +36,8 @@
         <p class="font-extrabold">0</p>
     </div>
 </div>
-<div class="p-5 width">
-    <div class="grid grid-rows-1 grid-cols-6 text-white font-semibold max-[1000px]:grid-cols-1 max-[1000px]:grid-rows-6">
+<div class="p-5 width list-container">
+    <div class="table-head grid grid-rows-1 grid-cols-6 text-white font-semibold max-[1000px]:grid-cols-1 max-[1000px]:grid-rows-6">
         <div class="flex justify-center items-center bg-blue-400 rounded-t-sm py-5">Image</div>
         <div class="flex justify-center items-center bg-blue-400 ">Name</div>
         <div class="flex justify-center items-center bg-blue-400 ">Category</div>

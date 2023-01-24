@@ -80,7 +80,7 @@ document.querySelectorAll(".add-product").forEach((e)=>{
     });
 });
 
-multiForm.addEventListener("submit", (e)=>{
+multiForm.addEventListener("submit", async(e)=>{
     e.preventDefault();
     let formData = new FormData();
     formData.append("names", handleInput(document.querySelectorAll("input[name='name[]']")));
@@ -89,10 +89,56 @@ multiForm.addEventListener("submit", (e)=>{
     formData.append("categories", handleInput(document.querySelectorAll("select[name='category[]']")))
     //formData.append("images", handleFile());
     handleFile(formData);
-    fetch("http://localhost:9000/Dashboard/addProduct", {
-        method: "POST",
-        body: formData,
-    });
+    try{
+        await fetch("http://localhost:9000/Dashboard/addProduct", {
+            method: "POST",
+            body: formData,
+        });
+        fetch("http://localhost:9000/Dashboard/Products").then((res)=>res.json()).then((data)=>{
+            //const head = document.querySelector(".table-head");
+            const list_container = document.querySelector(".list-container");
+
+            for(const tmp of data){
+                const element = document.createElement("div");
+                let classes = `list-${tmp.id} grid grid-cols-6 border-[2px] rounded-md font-semibold mt-2 p-3 ${(tmp.id +1)%2 && "bg-gray-100" } max-[1000px]:grid-cols-1 max-[1000px]:grid-rows-6`;
+                element.classList.add(...classes.split(" "));
+                element.innerHTML = `
+                <div class="flex justify-center items-center">
+                <img class="w-[80px] h-[80px] rouneded-[50%]" alt="image alternative" src="http://localhost:9000/public/src/images/${tmp.image}" />
+                </div>
+                <div class="flex justify-center items-center rounded-sm max-[1000px]:border-t-[2px]">
+                    ${tmp.name}
+                </div>
+                <div class="flex justify-center items-center rounded-sm max-[1000px]:border-t-[2px]">
+                    ${tmp.category}
+                </div>
+                <div class="flex justify-center items-center rounded-sm max-[1000px]:border-t-[2px]">
+                    ${tmp.price}
+                </div>
+                <div class="flex justify-center items-center rounded-sm max-[1000px]:border-t-[2px]">
+                    ${tmp.description}
+                </div>
+                <div class="flex justify-center items-center rounded-sm gap-5 max-[1000px]:border-t-[2px]">
+                    <div class="p-2 bg-orange-500 text-white rounded-md clicked-list" id="${tmp.id}">
+                        <i class="fa-solid fa-pen" id="${tmp.id}"></i>
+                    </div>
+                    <form class="p-2 bg-red-500 text-white rounded-md delete">
+                        <input type="hidden" name="delete-id" value="${tmp.id}" />
+                        <button>
+                            <i class="fa-solid fa-trash delete"></i>
+                        </button>
+                    </form>
+                </div>
+                `;
+                list_container.appendChild(element);
+            }
+
+            document.querySelector(".add").classList.add("hidden");
+            document.querySelector(".lists").classList.remove("hidden");
+        });
+    }catch(err){
+        console.log(err);
+    }
 
 });
 
@@ -101,7 +147,7 @@ const handleInput = (arr)=>{
     let tmp = [];
     for(const value of arr)
         tmp.push(value.value);
-    console.log(tmp);
+    tmp.shift();
     return JSON.stringify(tmp);
 };
 

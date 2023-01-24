@@ -32,3 +32,7 @@
    https://dribbble.com/shots/17595676-Property-Management-Recommendation
 
    https://dribbble.com/shots/18866176-Add-a-new-field-in-the-builder-for-the-MESA-app
+
+## hints:
+
+if you want to find the path of php.ini use ```php -i | grep 'php.ini'```
