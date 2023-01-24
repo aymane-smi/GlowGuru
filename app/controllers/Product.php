@@ -17,7 +17,11 @@ class Product extends Controller
 
     public function findByCategory($category)
     {
-        echo json_encode($this->Product->getProductByCategory($category));
+        if ($category === "all") {
+            echo json_encode($this->Product->getAllProduct());
+        } else {
+            echo json_encode($this->Product->getProductByCategory($category));
+        }
     }
 
     public function findBySearch($search)
