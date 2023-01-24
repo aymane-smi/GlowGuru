@@ -1,5 +1,5 @@
 <?php
-class Product
+class ProductModel
 {
     private $db;
     public function __construct()
@@ -49,7 +49,7 @@ class Product
 
     public function deleteProductById($id)
     {
-        $this->db->query("DELETE product WHERE id = :id");
+        $this->db->query("DELETE FROM product WHERE id = :id");
         $this->db->bind(":id", $id);
         $this->db->execute();
     }
@@ -67,5 +67,12 @@ class Product
         $this->db->query("SELECT * FROM product WHERE name LIKE CONCAT('%', :search, '%')");
         $this->db->bind(":search", $search);
         return $this->db->resultSet();
+    }
+
+    public function getProductById($id)
+    {
+        $this->db->query("SELECT * FROM product WHERE id = :id");
+        $this->db->bind(":id", $id);
+        return $this->db->single();
     }
 }

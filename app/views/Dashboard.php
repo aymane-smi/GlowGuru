@@ -22,7 +22,7 @@ require_once "inc/header.php";
         </form>
     </nav>
     <div class="p-4">
-        <div class="lists">
+        <div class="lists overflow-y-scroll height">
             <?php
             require_once "dash-pages/list.php";
             ?>

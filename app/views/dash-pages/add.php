@@ -1,5 +1,5 @@
 <form class="width flex flex-col justify-start items-center multi-form ovrflow-y-scroll max-h-screen" enctype="multipart/form-data">
-    <div class="w-1/2">
+    <div class="w-1/2 max-[1000px]:w-full" id="root-add">
         <div class="flex justify-between items-center border-2 p-3">
             <div>
                 <i class="fa-solid fa-plus"></i>

@@ -63,21 +63,16 @@ class Dashboard extends Controller
         }
     }
 
-    public function findByCategory($category)
-    {
-        var_dump($this->Product->getProductByCategory($category));
-    }
-
-    public function findBySearch($search)
-    {
-        var_dump($this->Product->getProductBySearch($search));
-    }
-
     public function logout()
     {
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
             session_destroy();
             header("Location: /Login");
         }
+    }
+
+    public function Product($id)
+    {
+        echo json_encode($this->Product->getProductById($id));
     }
 }

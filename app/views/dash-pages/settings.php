@@ -3,7 +3,7 @@
         <span class="p-4 block">credentials updated!</span>
         <div class="h-[3px] bg-blue-100 progress"></div>
     </div>
-    <form class="p-4 border-[2px] rounded-md w-[40%] settings">
+    <form class="p-4 border-[2px] rounded-md w-[40%] max-[1000px]:w-full settings">
         <p class="w-full text-center font-semibold">
             Edit Settings
         </p>

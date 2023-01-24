@@ -13,12 +13,13 @@ require_once "inc/header.php";
 </p>
 
 <div class="my-8 text-center text-[20px] border-y-[2px] mx-8 py-10">
-    /<span class="mx-3 cursor-pointer">shampo</span>
-    /<span class="mx-3 cursor-pointer">lotion</span>
-    /<span class="mx-3 cursor-pointer">creeme</span>/
+    /<span class="mx-3 cursor-pointer shampo">shampo</span>
+    /<span class="mx-3 cursor-pointer lotion">lotion</span>
+    /<span class="mx-3 cursor-pointer creeme">creeme</span>/
 </div>
+<input type="text" name="search" />
 
-<div class="flex justify-center items-centerflex-wrap p-4">
+<div class="flex justify-center items-center flex-wrap p-4 container">
     <div class="w-fit">
         <img alt="test image" src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=400&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY3NDA3NzQwNA&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=300" />
         <div class="w-full mt-5 border-black border-[2px] p-2">

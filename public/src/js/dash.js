@@ -150,4 +150,58 @@ settings.addEventListener("submit", (e)=>{
 
 //handle edit form
 
+const row = document.querySelectorAll(".clicked-list");
+const popup = document.querySelector(".popup");
 
+//console.log(popup);
+
+
+for(const tmp of row){
+    tmp.addEventListener("click", (e)=>{
+        fetch("http://localhost:9000/Dashboard/Product/"+e.target.id).then((res)=>res.json()).then((data)=>{
+            document.querySelector(".popup-name").value = data.name;
+            document.querySelector(".popup-price").value = data.price;
+            document.querySelector(".popup-id").value = data.id;
+            document.querySelector(".popup-category").value = data.category;
+            document.querySelector(".popup-description").value = data.description;
+        });
+        popup.classList.remove("hidden");
+    });
+}
+
+//handle edit of popup
+
+popup.addEventListener("submit", (e)=>{
+    e.preventDefault();
+    let formData = new FormData();
+    let id = document.querySelector(".popup-id").value;
+    formData.append("name", document.querySelector(".popup-name").value);
+    formData.append("price", document.querySelector(".popup-price").value);
+    formData.append("category", document.querySelector(".popup-category").value);
+    formData.append("description", document.querySelector(".popup-description").value);
+    fetch("http://localhost:9000/Dashboard/editProduct/"+id, {
+        method: "POST",
+        body: formData,
+    });
+    const tmp = document.querySelector(".list-"+id);
+    tmp.childNodes[3].innerText = document.querySelector(".popup-name").value;
+    tmp.childNodes[5].innerText = document.querySelector(".popup-category").value;
+    tmp.childNodes[7].innerText = document.querySelector(".popup-price").value;
+    tmp.childNodes[9].innerText = document.querySelector(".popup-description").value;
+    popup.classList.add("hidden");
+});
+
+//handle delete
+
+const deletes = document.querySelectorAll(".delete");
+
+for(const tmp of deletes){
+    tmp.addEventListener("submit", (e)=>{
+        e.preventDefault();
+        const id = e.target.childNodes[1].value;
+        fetch("http://localhost:9000/Dashboard/deleteProduct/"+id,{
+            method: "POST",
+        });
+        document.querySelector(".list-"+id).remove();
+    });
+}

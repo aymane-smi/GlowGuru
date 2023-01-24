@@ -25,7 +25,7 @@ session_start();
         }
 
         .width {
-            width: calc(100vw - 200px);
+            width: calc(100vw - 150px);
         }
 
         .height {
@@ -56,7 +56,7 @@ session_start();
 
 <body>
     <div class="hidden menu absolute w-full h-full top-[0%] left-[0%] z-50 bg-cover bg-[url('https://images.unsplash.com/photo-1536924430914-91f9e2041b83?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=1000&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY3NDQ4MDUwMg&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1500')]">
-        <div class="w-full px-4 flex justify-between items-center">
+        <div class="w-full px-4 mt-[-20px] flex justify-between items-center">
             <p class="text-[60px] text-white logo">GlowGuru</p>
             <p class="text-white max-[600px]:text-[40px] text-[60px] font-thin close">x</p>
         </div>
