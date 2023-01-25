@@ -241,7 +241,24 @@ const handleEdit = ()=>{
     }
 };
 
-handleEdit();
+const row = document.querySelectorAll(".clicked-list");
+    const popup = document.querySelector(".popup");
+
+    //console.log(popup);
+
+
+    for(const tmp of row){
+        tmp.addEventListener("click", (e)=>{
+            fetch("http://localhost:9000/Dashboard/Product/"+e.target.id).then((res)=>res.json()).then((data)=>{
+                document.querySelector(".popup-name").value = data.name;
+                document.querySelector(".popup-price").value = data.price;
+                document.querySelector(".popup-id").value = data.id;
+                document.querySelector(".popup-category").value = data.category;
+                document.querySelector(".popup-description").value = data.description;
+            });
+            popup.classList.remove("hidden");
+        });
+    }
 
 //handle edit of popup
 
@@ -267,26 +284,10 @@ popup.addEventListener("submit", (e)=>{
 
 //handle delete
 
-const deletes = document.querySelectorAll(".delete");
-
-    for(const tmp of deletes){
-        console.log("dekete");
-        tmp.addEventListener("submit", (e)=>{
-            e.preventDefault();
-            const id = e.target.childNodes[1].value;
-            fetch("http://localhost:9000/Dashboard/deleteProduct/"+id,{
-                method: "POST",
-            });
-            ProductCounter.innerText = Number.parseInt(ProductCounter.innerText)-1;
-            document.querySelector(".list-"+id).remove();
-        });
-    }
-
 const handleDelete = ()=>{
     const deletes = document.querySelectorAll(".delete");
 
     for(const tmp of deletes){
-        console.log("dekete");
         tmp.addEventListener("submit", (e)=>{
             e.preventDefault();
             const id = e.target.childNodes[1].value;
