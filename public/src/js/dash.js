@@ -40,11 +40,12 @@ document.querySelectorAll(".add-product").forEach((e)=>{
     e.addEventListener("click", ()=>{
         let newElement = document.createElement("div");
         newElement.classList.add(...["w-1/2", "mt-3"]);
+        newElement.id = `form-id-${++counter}`;
         newElement.innerHTML = `<div class="flex justify-between items-center border-2 p-3">
         <div>
             <i class="fa-solid fa-plus"></i>
             <span class="font-semibold">
-                Product <span class="product-counter">${++counter}</span>
+                Product <span class="product-counter">${counter}</span>
             </span>
         </div>
         <i class="fa-solid fa-chevron-up"></i>
@@ -71,6 +72,7 @@ document.querySelectorAll(".add-product").forEach((e)=>{
             <textarea name="description[]" required class="p-2 bg-white border-2 rounded-md"></textarea>
         </div>
         <input type="file" name="image[]" required />
+        <div class="p-2 rounded-md text-white bg-red-500 font-semibold w-fit cursor-pointer" onclick="removeForm('form-id-${counter}')">Delete form</div>
     </div>`;
     newElement.childNodes[0].childNodes[3].addEventListener("click", (e)=>{
         e.target.classList.toggle("rotate-180");
@@ -78,7 +80,14 @@ document.querySelectorAll(".add-product").forEach((e)=>{
     });
     multiForm.insertBefore(newElement, btns);
     });
+    //console.log(document.querySelector(`#delete-form-${counter}`));
 });
+
+const removeForm  = (id)=>{
+    document.que
+    document.querySelector(`#${id}`).remove();
+    --counter;
+}
 
 multiForm.addEventListener("submit", async(e)=>{
     e.preventDefault();
