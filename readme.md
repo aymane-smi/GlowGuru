@@ -23,6 +23,10 @@
 
 ![diagram class](class.png)
 
+ - sequence diagram:
+
+![sequence diagram](sequence.png)
+
 ## ui inspiration:
 
    https://dribbble.com/shots/20330210-Cosmetic-are
