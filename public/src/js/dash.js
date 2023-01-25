@@ -11,6 +11,8 @@ const getadd = document.querySelector(".get-add");
 
 const getSettings = document.querySelector(".get-settings");
 
+const ProductCounter = document.querySelector(".count-products");
+
 getList.addEventListener("click", ()=>{
     document.querySelector(".lists").classList.remove("hidden");
     document.querySelector(".add").classList.add("hidden");
@@ -141,7 +143,8 @@ multiForm.addEventListener("submit", async(e)=>{
                 `;
                 list_container.appendChild(element);
             }
-
+            ProductCounter.innerText = Number.parseInt(ProductCounter.innerText) + JSON.parse(formData.get("names")).length;
+            counter = 1;
             document.querySelector(".add").classList.add("hidden");
             document.querySelector(".lists").classList.remove("hidden");
         });
@@ -257,6 +260,7 @@ for(const tmp of deletes){
         fetch("http://localhost:9000/Dashboard/deleteProduct/"+id,{
             method: "POST",
         });
+        ProductCounter.innerText = Number.parseInt(ProductCounter.innerText)-1;
         document.querySelector(".list-"+id).remove();
     });
 }

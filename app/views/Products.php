@@ -3,9 +3,9 @@ require_once "inc/header.php";
 ?>
 <nav class="flex justify-between items-center w-screen px-4">
     <p class="text-[60px] logo">GlowGuru</p>
-    <div class="flex flex-col gap-5">
-        <span class="bg-black w-[40px5">
-            <span class="bg-black w-[40px] h-[1px]"></span>
+    <div class="flex flex-col gap-5 open">
+        <span class="bg-black w-[40px]">
+            <span class="bg-black w-[40px] h-[2px]"></span>
             <span class="bg-black w-[40px] h-[1px]"></span>
     </div>
 </nav>
@@ -18,17 +18,17 @@ require_once "inc/header.php";
         <span class="mx-3 cursor-pointer shampo">shampo</span>
         /<span class="mx-3 cursor-pointer lotion">lotion</span>
         /<span class="mx-3 cursor-pointer creeme">creeme</span>
-        /<span class="mx-3 cursor-pointer creeme">all</span>
+        /<span class="mx-3 cursor-pointer all">all</span>
     </div>
-    <input type="text" name="search" class="border-[3px] rounded-md p-3 mt-4" placeholder="search..." />
+    <input type="text" name="search" class="border-[3px] rounded-md p-3 mt-4 w-[300px] max-[500px]:w-[250px]" placeholder="search..." />
 </div>
 
-<div class="flex justify-center items-center flex-wrap p-4 container">
+<div class="flex justify-center items-center flex-wrap p-4 container gap-4">
     <?php
     foreach ($data["products"] as $product) {
     ?>
-        <div class="w-fit">
-            <img alt="test image" src="http://localhost:9000/public/src/images/<?php echo $product->image; ?>" />
+        <div class="<-fit">
+            <img class="w-[300px] h-[350px]" alt="test image" src="http://localhost:9000/public/src/images/<?php echo $product->image; ?>" />
             <div class="w-full mt-5 border-black border-[2px] p-2">
                 <div class="w-full flex justify-between items-center font-semibold">
                     <span><?php echo $product->name; ?></span>

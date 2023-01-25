@@ -1,6 +1,7 @@
 const shampo = document.querySelector(".shampo");
 const creeme = document.querySelector(".creeme");
 const lotion = document.querySelector(".lotion");
+const all = document.querySelector(".all");
 
 const helperFunction = (category)=>{
     fetch("http://localhost:9000/Product/findByCategory/"+category).then((res)=>res.json()).then((data)=>{
@@ -10,7 +11,7 @@ const helperFunction = (category)=>{
             const cart = document.createElement("div");
             cart.classList.add('w-fit');
             cart.innerHTML = `
-            <img alt="image-${tmp.id}" src="http://localhost:9000/public/src/images/${tmp.image}" />
+            <img class="w-[300px] h-[350px]" alt="image-${tmp.id}" src="http://localhost:9000/public/src/images/${tmp.image}" />
             <div class="w-full mt-5 border-black border-[2px] p-2">
                 <div class="w-full flex justify-between items-center font-semibold">
                     <span>${tmp.name}</span>
@@ -36,6 +37,10 @@ creeme.addEventListener("click", (e)=>{
     helperFunction("creeme");
 });
 
+all.addEventListener("click", (e)=>{
+    helperFunction("all");
+});
+
 
 //handle search
 
@@ -47,11 +52,12 @@ searchInput.addEventListener("input", (e)=>{
     if(e.target.value !== ""){
         fetch("http://localhost:9000/Product/findBySearch/"+e.target.value).then((res)=>res.json()).then((data)=>{
             const container = document.querySelector(".container");
+            container.innerHTML = "";
             for(const tmp of data){
                 const cart = document.createElement("div");
                 cart.classList.add('w-fit');
                 cart.innerHTML = `
-                <img alt="image-${tmp.id}" src="http://localhost:9000/public/src/images/${tmp.image}" />
+                <img class="w-[300px] h-[350px]" alt="image-${tmp.id}" src="http://localhost:9000/public/src/images/${tmp.image}" />
                 <div class="w-full mt-5 border-black border-[2px] p-2">
                     <div class="w-full flex justify-between items-center font-semibold">
                         <span>${tmp.name}</span>

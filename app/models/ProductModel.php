@@ -9,11 +9,6 @@ class ProductModel
 
     public function createProduct($name, $price, $category, $image, $description)
     {
-        echo $name . "<br>";
-        echo $price . "<br>";
-        echo $category . "<br>";
-        echo $image . "<br>";
-        echo $description . "<br>";
         $this->db->query("INSERT INTO product(name, price, category, image, description) VALUES(:name, :price, :category, :image, :description)");
         $this->db->bind(":name", $name);
         $this->db->bind(":price", $price);
