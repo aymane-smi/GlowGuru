@@ -80,7 +80,7 @@
                 <form class="p-2 bg-red-500 text-white rounded-md delete">
                     <input type="hidden" name="delete-id" value="<?php echo $data["products"][$i]->id; ?>" />
                     <button>
-                        <i class="fa-solid fa-trash delete"></i>
+                        <i class="fa-solid fa-trash"></i>
                     </button>
                 </form>
             </div>

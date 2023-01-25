@@ -4,9 +4,11 @@ require_once "inc/header.php";
 <nav class="flex justify-between items-center w-screen px-4">
     <p class="text-[60px] logo">GlowGuru</p>
     <div class="flex flex-col gap-5 open">
-        <span class="bg-black w-[40px]">
+        
+        <div class="flex flex-col gap-5 open">
             <span class="bg-black w-[40px] h-[2px]"></span>
-            <span class="bg-black w-[40px] h-[1px]"></span>
+            <span class="bg-black w-[40px] h-[2px]"></span>
+        </div>
     </div>
 </nav>
 <p class=" text-center text-[30px] font-semibold">

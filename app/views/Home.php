@@ -7,8 +7,8 @@ require_once "inc/header.php";
     <nav class="absolute flex justify-between items-center top-[-20px] w-screen px-4">
         <p class="text-[60px] text-white logo">GlowGuru</p>
         <div class="flex flex-col gap-5 open">
-            <span class="bg-white w-[40px] h-[1px]"></span>
-            <span class="bg-white w-[40px] h-[1px]"></span>
+            <span class="bg-white w-[40px] h-[2px]"></span>
+            <span class="bg-white w-[40px] h-[2px]"></span>
         </div>
     </nav>
     <div class="absolute flex flex-col top-[30%] left-[37%] max-[1000px]:top-[50%] max-[500px]:left-[22%]  max-[400px]:top-[70%] justify-center items-center">

@@ -41,7 +41,7 @@ let counter = 1;
 document.querySelectorAll(".add-product").forEach((e)=>{
     e.addEventListener("click", ()=>{
         let newElement = document.createElement("div");
-        newElement.classList.add(...["w-1/2", "mt-3"]);
+        newElement.classList.add(...["w-1/2", "mt-3", "form-to-delete"]);
         newElement.id = `form-id-${++counter}`;
         newElement.innerHTML = `<div class="flex justify-between items-center border-2 p-3">
         <div>
@@ -108,7 +108,7 @@ multiForm.addEventListener("submit", async(e)=>{
         fetch("http://localhost:9000/Dashboard/Products").then((res)=>res.json()).then((data)=>{
             //const head = document.querySelector(".table-head");
             const list_container = document.querySelector(".list-container");
-
+            list_container.innerHTML = "";
             for(const tmp of data){
                 const element = document.createElement("div");
                 let classes = `list-${tmp.id} grid grid-cols-6 border-[2px] rounded-md font-semibold mt-2 p-3 ${(tmp.id +1)%2 && "bg-gray-100" } max-[1000px]:grid-cols-1 max-[1000px]:grid-rows-6`;
@@ -147,6 +147,18 @@ multiForm.addEventListener("submit", async(e)=>{
             counter = 1;
             document.querySelector(".add").classList.add("hidden");
             document.querySelector(".lists").classList.remove("hidden");
+            document.querySelectorAll(".form-to-delete").forEach((element)=>{
+                element.remove();
+            });
+
+            //empty all input after the upload
+
+            document.querySelector("input[name='name[]']").value = "";
+            document.querySelector("input[name='price[]']").value = "";
+            document.querySelector("input[name='image[]']").files = [];
+            document.querySelector("input[name='description[]']").value = "";
+            handleEdit();
+            handleDelete();
         });
     }catch(err){
         console.log(err);
@@ -208,24 +220,28 @@ settings.addEventListener("submit", (e)=>{
 
 //handle edit form
 
-const row = document.querySelectorAll(".clicked-list");
-const popup = document.querySelector(".popup");
+const handleEdit = ()=>{
+    const row = document.querySelectorAll(".clicked-list");
+    const popup = document.querySelector(".popup");
 
-//console.log(popup);
+    //console.log(popup);
 
 
-for(const tmp of row){
-    tmp.addEventListener("click", (e)=>{
-        fetch("http://localhost:9000/Dashboard/Product/"+e.target.id).then((res)=>res.json()).then((data)=>{
-            document.querySelector(".popup-name").value = data.name;
-            document.querySelector(".popup-price").value = data.price;
-            document.querySelector(".popup-id").value = data.id;
-            document.querySelector(".popup-category").value = data.category;
-            document.querySelector(".popup-description").value = data.description;
+    for(const tmp of row){
+        tmp.addEventListener("click", (e)=>{
+            fetch("http://localhost:9000/Dashboard/Product/"+e.target.id).then((res)=>res.json()).then((data)=>{
+                document.querySelector(".popup-name").value = data.name;
+                document.querySelector(".popup-price").value = data.price;
+                document.querySelector(".popup-id").value = data.id;
+                document.querySelector(".popup-category").value = data.category;
+                document.querySelector(".popup-description").value = data.description;
+            });
+            popup.classList.remove("hidden");
         });
-        popup.classList.remove("hidden");
-    });
-}
+    }
+};
+
+handleEdit();
 
 //handle edit of popup
 
@@ -253,14 +269,34 @@ popup.addEventListener("submit", (e)=>{
 
 const deletes = document.querySelectorAll(".delete");
 
-for(const tmp of deletes){
-    tmp.addEventListener("submit", (e)=>{
-        e.preventDefault();
-        const id = e.target.childNodes[1].value;
-        fetch("http://localhost:9000/Dashboard/deleteProduct/"+id,{
-            method: "POST",
+    for(const tmp of deletes){
+        console.log("dekete");
+        tmp.addEventListener("submit", (e)=>{
+            e.preventDefault();
+            const id = e.target.childNodes[1].value;
+            fetch("http://localhost:9000/Dashboard/deleteProduct/"+id,{
+                method: "POST",
+            });
+            ProductCounter.innerText = Number.parseInt(ProductCounter.innerText)-1;
+            document.querySelector(".list-"+id).remove();
         });
-        ProductCounter.innerText = Number.parseInt(ProductCounter.innerText)-1;
-        document.querySelector(".list-"+id).remove();
-    });
-}
+    }
+
+const handleDelete = ()=>{
+    const deletes = document.querySelectorAll(".delete");
+
+    for(const tmp of deletes){
+        console.log("dekete");
+        tmp.addEventListener("submit", (e)=>{
+            e.preventDefault();
+            const id = e.target.childNodes[1].value;
+            fetch("http://localhost:9000/Dashboard/deleteProduct/"+id,{
+                method: "POST",
+            });
+            ProductCounter.innerText = Number.parseInt(ProductCounter.innerText)-1;
+            document.querySelector(".list-"+id).remove();
+        });
+    }
+};
+
+handleDelete();

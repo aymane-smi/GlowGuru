@@ -62,6 +62,7 @@ session_start();
         </div>
 
         <div class="flex flex-col justify-center items-center gap-6 text-white font-bold text-[50px] mt-10 max-[600px]:text-[30px]">
+            <a href="/">Home</a>
             <a href="/product">Product</a>
             <a href="/Login">Login</a>
         </div>
