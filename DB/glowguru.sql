@@ -16,5 +16,5 @@ CREATE TABLE product(
 CREATE TABLE admin(
     id INT PRIMARY KEY AUTO_INCREMENT,
     username VARCHAR(30) NOT NULL,
-    password VARCHAR(60) NOT NULL
+    password VARCHAR(70) NOT NULL
 );
